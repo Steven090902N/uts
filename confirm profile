@@ -1,0 +1,108 @@
+import 'package:flutter/material.dart';
+import 'package:uts_application_piranti/home_page.dart';
+
+// Mendefinisikan StatefulWidget untuk layar ConfirmAkun
+class ConfirmAkun extends StatefulWidget {
+  const ConfirmAkun({Key? key});
+
+  @override
+  State<ConfirmAkun> createState() => _ConfirmAkunState();
+}
+
+// Mendefinisikan kelas State untuk ConfirmAkun
+class _ConfirmAkunState extends State<ConfirmAkun> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // Scaffold adalah struktur dasar dari layar
+      body: SingleChildScrollView(
+        // SingleChildScrollView memungkinkan pengguliran jika konten meluap
+        child: Center(
+          // Widget Center menyelaraskan child-nya di tengah layar
+          child: Column(
+            // Column adalah susunan vertikal dari widget
+            mainAxisAlignment: MainAxisAlignment.center,
+            // Selaraskan children di tengah kolom
+            children: [
+              // Tambahkan ruang di bagian atas
+              SizedBox(height: 150),
+
+              // Tampilkan teks "Confirm Your Account"
+              Text(
+                'Confirm Your Account',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              SizedBox(
+                  height:
+                      16), // Tambahkan ruang antara teks dan gambar profil
+
+              // Tampilkan gambar profil dalam wadah lingkaran
+              Container(
+                width: 200, // Sesuaikan lebar sesuai kebutuhan
+                height: 200, // Sesuaikan tinggi sesuai kebutuhan
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(
+                        'assets/profile.png'), // Berikan path ke gambar Anda
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+
+              SizedBox(
+                  height:
+                      16), // Tambahkan ruang antara gambar dan teks "Welcome"
+
+              // Tampilkan teks "Welcome"
+              Text(
+                'Welcome MR. Bean',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              SizedBox(
+                  height:
+                      340), // Tambahkan ruang antara teks dan tombol
+
+              // Buat tombol untuk navigasi ke HomePage
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    // Navigasi ke HomePage ketika tombol ditekan
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      ),
+                    );
+                  },
+                  icon: Icon(Icons.login, color: Colors.white,),
+                  label: Text(
+                    'Yes, I am in',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(400, 50),
+                    primary: Colors
+                        .black, // Tentukan lebar, tinggi, dan warna tombol
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
